@@ -1,0 +1,24 @@
+#!/bin/sh
+set -e
+
+# Trap errors and display failure message
+trap 'echo "❌ pre-commit checks failed!"; exit 1' ERR
+
+# Example pre-commit hook
+# This hook runs before each commit
+
+echo "🔍 Running pre-commit checks..."
+
+# Format code with black
+echo "  → Running black..."
+black .
+
+# Check code style with flake8
+echo "  → Running flake8..."
+flake8 .
+
+# Type checking with mypy
+echo "  → Running mypy..."
+mypy .
+
+echo "✅ Pre-commit checks passed!"

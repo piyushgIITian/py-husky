@@ -1,0 +1,20 @@
+#!/bin/sh
+set -e
+
+# Trap errors and display failure message
+trap 'echo "❌ pre-push checks failed!"; exit 1' ERR
+
+# Example pre-push hook
+# This hook runs before pushing to remote
+
+echo "🚀 Running pre-push checks..."
+
+# Run tests
+echo "  → Running tests..."
+pytest tests/ -v
+
+# Check test coverage
+echo "  → Checking coverage..."
+pytest tests/ --cov --cov-report=term-missing
+
+echo "✅ Pre-push checks passed!"

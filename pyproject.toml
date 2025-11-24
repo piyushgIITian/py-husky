@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-husky"
+version = "0.1.0"
+description = "Git hooks made easy for Python projects - inspired by Husky"
+readme = "README.md"
+authors = [
+    {name = "Piyush Gautam", email = "piyushgautamtg@gmail.com"}
+]
+license = "MIT"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Version Control :: Git",
+]
+keywords = ["git", "hooks", "pre-commit", "husky", "version-control"]
+requires-python = ">=3.8"
+dependencies = [
+    "click>=8.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "flake8>=4.0.0",
+    "mypy>=0.950",
+]
+
+[project.urls]
+Homepage = "https://github.com/piyushgIITian/py-husky"
+Documentation = "https://github.com/piyushgIITian/py-husky#readme"
+Repository = "https://github.com/piyushgIITian/py-husky"
+Issues = "https://github.com/piyushgIITian/py-husky/issues"
+
+[project.scripts]
+py-husky = "py_husky.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["py_husky*"]
+exclude = ["tests*"]
